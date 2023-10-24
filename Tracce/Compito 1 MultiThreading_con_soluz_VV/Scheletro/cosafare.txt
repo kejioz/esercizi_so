@@ -1,0 +1,13 @@
+
+1 - Il client e il server comunicano attraverso una coda
+
+    QUINDI SIA CLIENT CHE SERVER DEVONO USARE UNA IPC CON MSSGET PER COMUNICARE
+
+    - Sicuramente devo fare FTOK con msgget sia in main_client che in main_server
+
+2 - Soltanto il server ha un buffer. Il buffer è condiviso tra i thread generati dal server
+
+    - Sicuramente la generazione dei thread devo farla soltanto in main_server
+    - Sicuramente devo fare un mutex per l'accesso al buffer, senza fare altre condition complicate
+
+    QUINDI IL BUFFER MI CONVIENE ALLOCARLO NELL'AREA HEAP ? O COMUNQUE RICORDA CHE NON È IPC

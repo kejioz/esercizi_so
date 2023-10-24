@@ -1,0 +1,18 @@
+GENERO UN CLIENT ED UN SERVER CON LA EXEC
+
+1 - Il client manda messaggi su una CODA RICHIESTE
+	Inoltre aspetta messaggi su una CODA RISPOSTE
+
+2 - Il server aspetta messaggi su una CODA RICHIESTE ( lo fa il thread consumatore )
+	Inoltre restituisce al client su una CODA RISPOSTE
+	
+	Il server ha un buffer di DIM 4 gestito come coda circolare
+	Il server genera 3 thread:
+		Produttore - genera 12 valori casuali tra 1 e 10 e mette nel buffer con prodcons schema
+		Consumatore - si occupa di ricevere messaggi da CODA RICHIESTE. Consuma con prodcons e 	
+		senda la risposta su CODA RISPOSTE
+			Inoltre in MUTEX aggiorna un BUFFER_SINGOLO SOMMA SOMMANDO quello che ah consumato
+		Stampa_somma - si mette in attesa sulla condizione 12 valori nella variabile somma, per 
+		poi stampare a video
+
+3 - NOTA CHE BUFFER E SOMMA SONO ALLOCATE NORMALMENTE NON COME SHM OVVIAMENTE SICCOME THREADS

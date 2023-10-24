@@ -1,0 +1,1 @@
+Cambia soltanto che con la signal e continue utilizzo il while invece dell'if
